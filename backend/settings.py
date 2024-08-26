@@ -228,7 +228,7 @@ JAZZMIN_SETTINGS = {
 
     # Additional links to include in the user menu on the top right ("app" url type is not allowed)
     "usermenu_links": [
-        {"name": "Support", "url": "https://github.com/nahid-the-developer", "new_window": True},
+        {"name": "Support", "url": "https://github.com/nahidthedeveloper", "new_window": True},
         {"model": "authentication.Account"},
     ],
 
@@ -274,7 +274,7 @@ JAZZMIN_SETTINGS = {
     # Whether to link font from fonts.googleapis.com (use custom_css to supply font otherwise)
     "use_google_fonts_cdn": True,
     # Whether to show the UI customizer on the sidebar
-    "show_ui_builder": False,
+    "show_ui_builder": True,
 
     ###############
     # Change view #
