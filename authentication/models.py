@@ -2,6 +2,7 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 from authentication.manager import AccountManager
+from common.models import BaseModel
 
 
 class Account(AbstractUser):
@@ -10,7 +11,6 @@ class Account(AbstractUser):
     last_name = None
 
     email = models.EmailField(max_length=100, unique=True)
-    student_id = models.CharField(max_length=16)
     name = models.CharField(max_length=150)
 
     USERNAME_FIELD = 'email'
