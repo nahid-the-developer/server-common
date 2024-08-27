@@ -119,7 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Dhaka'
 
 USE_I18N = True
 
@@ -167,15 +167,25 @@ EMAIL_HOST_USER = env('EMAIL_HOST_USER', default='')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD', default='')
 EMAIL_PORT = env('EMAIL_PORT', default='')
 
+
+# Celery settings
+CELERY_BROKER_URL = 'redis://redis:6379/1'
+CELERY_RESULT_BACKEND = 'redis://redis:6379/1'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Asia/Dhaka'
+
+
 JAZZMIN_SETTINGS = {
     # title of the window (Will default to current_admin_site.site_title if absent or None)
-    "site_title": "Smart Attendance System Admin",
+    "site_title": "Server Starter",
 
     # Title on the login screen (19 chars max) (defaults to current_admin_site.site_header if absent or None)
-    "site_header": "Smart Attendance System",
+    "site_header": "Server Starter",
 
     # Title on the brand (19 chars max) (defaults to current_admin_site.site_header if absent or None)
-    "site_brand": "Smart Attendance System",
+    "site_brand": "Server Starter",
 
     # Logo to use for your site, must be present in static files, used for brand on top left
     "site_logo": None,
@@ -193,7 +203,7 @@ JAZZMIN_SETTINGS = {
     "site_icon": None,
 
     # Welcome text on the login screen
-    "welcome_sign": "Welcome to the Smart Attendance System Admin",
+    "welcome_sign": "Welcome to the Server Starter Admin",
 
     # Copyright on the footer
     "copyright": "Nahid Hasan",
@@ -216,7 +226,7 @@ JAZZMIN_SETTINGS = {
         {"name": "Home", "url": "admin:index", "permissions": ["auth.view_user"]},
 
         # external url that opens in a new window (Permissions can be added)
-        {"name": "Support", "url": "https://github.com/nahid-the-developer", "new_window": True},
+        {"name": "Support", "url": "https://github.com/nahidthedeveloper", "new_window": True},
 
         # model admin to link to (Permissions checked against model)
         {"model": "authentication.Account"},
