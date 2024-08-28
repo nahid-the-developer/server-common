@@ -27,6 +27,6 @@ class EmailSerializer(serializers.Serializer):
         recipient_list = [email]
 
         # Send the email asynchronously using Celery
-        send_email_task.apply_async()
+        send_email_task.delay(subject, message, recipient_list)
 
         return validated_data
