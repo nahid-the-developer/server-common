@@ -3,3 +3,4 @@ venv
 .env
 static
 postgres_data
+celerybeat-schedule
