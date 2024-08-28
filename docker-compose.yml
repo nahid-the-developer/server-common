@@ -30,10 +30,28 @@ services:
       - "6379:6379"
 
   celery:
-    build: .
-    command: celery -A backend worker --loglevel=info
+    restart: always
+    build:
+      context: ./
+      dockerfile: celery.Dockerfile
+    command: celery -A backend worker -l info
     volumes:
       - .:/app
+    env_file:
+      - .env
     depends_on:
       - redis
       - db
+
+  celery_beat:
+    restart: always
+    build:
+      context: ./
+      dockerfile: celery.Dockerfile
+    command: celery -A backend beat -l info
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    depends_on:
+      - celery
